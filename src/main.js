@@ -36,7 +36,7 @@ const getPicFromData = (l) => {
     urlParams.append("data[]", JSON.stringify(data[el]));
     url = url + String(urlParams) + "&";
   }
-  console.log(url);
+  return url;
 };
 
 const Main = () => {
@@ -48,6 +48,7 @@ const Main = () => {
       { id: 4, value: "" },
     ],
   ]);
+  const [imgUrl, setImgUrl] = useState();
 
   const handleChange = (e, id, rowId) => {
     const updatedRows = [...rows];
@@ -80,7 +81,10 @@ const Main = () => {
       }
     }
     setRows(updatedRows);
+    setImgUrl(getPicFromData(rows));
   };
+
+  console.log(imgUrl);
 
   return (
     <div>
@@ -99,7 +103,7 @@ const Main = () => {
           ))}
         </div>
       ))}
-      <button onClick={getPicFromData(rows)}>Генерировать</button>
+      <img src={imgUrl} alt="Введите корректно данные для генерации..." />
     </div>
   );
 };
