@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FileDownload } from "react-file-download";
 
 const getBackground = (n) => {
   switch (n) {
@@ -81,7 +82,6 @@ const Main = () => {
       }
     }
     setRows(updatedRows);
-    setImgUrl(getPicFromData(rows));
   };
 
   console.log(imgUrl);
@@ -103,7 +103,17 @@ const Main = () => {
           ))}
         </div>
       ))}
-      <img src={imgUrl} alt="Введите корректно данные для генерации..." />
+      <button onClick={() => setImgUrl(getPicFromData(rows))}>
+        Генерировать
+      </button>
+      <img src={imgUrl} alt="Что-то пошло не так..." />
+
+      <a
+        download="График.png"
+        href="http://127.0.0.1:8000/api/draw_from_request/?data%5B%5D=%7B%22Open%22%3A22%2C%22High%22%3A11%2C%22Low%22%3A44%2C%22Close%22%3A33%7D"
+      >
+        <button>Скачать</button>
+      </a>
     </div>
   );
 };
