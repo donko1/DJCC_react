@@ -29,7 +29,13 @@ const formatDictToList = (d) => {
 };
 
 const getPicFromData = (l) => {
-  let url = "/api/draw_from_request/?";
+  let url = "";
+  if (process.env.REACT_APP_BUILD_MODE === "development") {
+    url = "http://127.0.0.1:8000/api/draw_from_request/?";
+  } else {
+    url = "/api/draw_from_request/?";
+  }
+
   const data = formatDictToList(l);
   for (const el in data) {
     const urlParams = new URLSearchParams();
@@ -83,12 +89,8 @@ const Main = () => {
     setRows(updatedRows);
   };
 
-  console.log(imgUrl);
-
   return (
     <div>
-      <h1>Привет! Это сайт по рисованию свечных графиков онлайн!</h1>
-      <h2>Для использования напиши в форму ниже значения</h2>
       {rows.map((row, rowId) => (
         <div key={rowId} style={{ display: "flex", gap: "10px" }}>
           {row.map(({ id, value }) => (
