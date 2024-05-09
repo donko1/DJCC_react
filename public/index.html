@@ -14,21 +14,30 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/main.css" />
     <title>DJCC</title>
   </head>
-  <body>
-    <div style="margin: 0% 10vw; color: white">
-      <h1 class="title">DJCC</h1>
-      <div class="center">
-        <h1 class="main-text">Here u can</h1>
-        <div class="container">
-          <h2 class="elem">Draw</h2>
-          <h2 class="elem main__elem">Invest</h2>
-          <h2 class="elem">Trade</h2>
-        </div>
+  <body style="padding: 0; margin: 0">
+    <div class="parallax-container" style="margin: 0; color: white">
+      <div class="parallax-background">
+        <img
+          class="parallax-background_img"
+          src="%PUBLIC_URL%/background.png"
+          alt="Фоновое изображение"
+        />
       </div>
 
-      <noscript>You need to enable JavaScript to run this app.</noscript>
-      <div id="root"></div>
+      <div class="parallax-content">
+        <h1 class="title">DJCC</h1>
+        <div class="center">
+          <h1 class="main-text">Here you can</h1>
+          <div class="container">
+            <h2 class="elem">Draw</h2>
+            <h2 class="elem main__elem">Invest</h2>
+            <h2 class="elem">Trade</h2>
+          </div>
+        </div>
+        <div id="root"></div>
+      </div>
     </div>
+
     <script src="%PUBLIC_URL%/main.js"></script>
   </body>
 </html>

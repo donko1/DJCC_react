@@ -88,20 +88,38 @@ const Main = () => {
     }
     setRows(updatedRows);
   };
-
+  const inputs = document.querySelectorAll(".input");
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.value) {
+        input.classList.add("has-value");
+      } else {
+        input.classList.remove("has-value");
+      }
+    });
+  });
   return (
     <div>
       {rows.map((row, rowId) => (
-        <div key={rowId} style={{ display: "flex", gap: "10px" }}>
-          {row.map(({ id, value }) => (
-            <input
-              key={id}
-              type="text"
-              placeholder={getBackground(id)}
-              value={value || ""}
-              onChange={(e) => handleChange(e, id, rowId)}
-            />
-          ))}
+        <div
+          className="input-container"
+          key={rowId}
+          style={{ display: "flex", gap: "10px" }}
+        >
+          <div className="center">
+            {row.map(({ id, value }) => (
+              <div className="input-wrapper center">
+                <input
+                  key={id}
+                  type="text"
+                  className="input"
+                  placeholder={getBackground(id)}
+                  value={value || ""}
+                  onChange={(e) => handleChange(e, id, rowId)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       ))}
       <button onClick={() => setImgUrl(getPicFromData(rows))}>
