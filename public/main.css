@@ -163,14 +163,62 @@ body {
   padding: 30px;
   font-size: 30px;
   color: white;
-  margin: 25px
+  margin: 25px;
+  transition: .5s;
 }
-.input:focus, .has-value{
+.input:focus, .has-value, .input:hover{
   border-color: rgb(17, 151, 129);
   outline: 0;
+  transition: .5s;
 }
 .input::placeholder {
   font-size: 28px;
   text-align: center;
   color: white
+}
+.button {
+  padding: 40px 60px;
+  font-size: 30px;
+  background-color: transparent;
+  color: rgb(209, 59, 197);
+  border-color: rgb(175, 49, 164);
+  border-radius: 100px;
+  margin-top: 60px;
+  transition: .5s;
+}
+.button:hover {
+  background-color: rgb(175, 49, 164);
+  color: white;
+  transition: .5s;
+}
+@keyframes db {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+  
+}
+.down_button {
+  animation-name: db;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  transition: ease-in-out;
+}
+
+@keyframes ub {
+  0% {
+    transform: translateY(200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+  
+}
+.up_button {
+  animation-name: ub;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  transition: ease-in-out;
 }

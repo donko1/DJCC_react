@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 const getBackground = (n) => {
   switch (n) {
     case 1:
-      return "Минимум";
+      return "Minimum";
     case 2:
-      return "Открытие";
+      return "Open";
     case 3:
-      return "Закрытие";
+      return "Close";
     case 4:
-      return "Максимум";
+      return "Max";
   }
 };
 
@@ -66,6 +70,10 @@ const Main = () => {
         { id: 3, value: "" },
         { id: 4, value: "" },
       ];
+      document.querySelector(".button").classList.add("down_button");
+      sleep(800).then(() => {
+        document.querySelector(".button").classList.remove("down_button");
+      });
       updatedRows.push(newRow);
     }
     if (rowId == rows.length - 2 && e.target.value == "") {
@@ -79,6 +87,10 @@ const Main = () => {
           ) {
             updatedRows.pop();
           }
+          document.querySelector(".button").classList.add("up_button");
+          sleep(800).then(() => {
+            document.querySelector(".button").classList.remove("up_button");
+          });
         }
       } catch (TypeError) {
         if (updatedRows.length !== 1) {
@@ -122,9 +134,14 @@ const Main = () => {
           </div>
         </div>
       ))}
-      <button onClick={() => setImgUrl(getPicFromData(rows))}>
-        Генерировать
-      </button>
+      <div className="center">
+        <button
+          className="button"
+          onClick={() => setImgUrl(getPicFromData(rows))}
+        >
+          Generate
+        </button>
+      </div>
       <img src={imgUrl} alt="Что-то пошло не так..." />
 
       <a download="График.png" href={imgUrl}>
