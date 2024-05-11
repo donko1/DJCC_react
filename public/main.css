@@ -222,3 +222,10 @@ body {
   animation-fill-mode: forwards;
   transition: ease-in-out;
 }
+.img {
+  margin-top: 20px;
+  animation-name: fade-in;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  transition: ease-in-out;
+}

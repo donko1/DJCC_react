@@ -142,11 +142,14 @@ const Main = () => {
           Generate
         </button>
       </div>
-      <img src={imgUrl} alt="Что-то пошло не так..." />
-
-      <a download="График.png" href={imgUrl}>
-        <button>Скачать</button>
-      </a>
+      <div className="center">
+        {imgUrl && <img src={imgUrl} alt="" className="img" />}
+      </div>
+      {imgUrl && (
+        <a download="График.png" href={imgUrl}>
+          <button>Скачать</button>
+        </a>
+      )}
     </div>
   );
 };
