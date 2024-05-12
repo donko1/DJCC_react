@@ -145,11 +145,13 @@ const Main = () => {
       <div className="center">
         {imgUrl && <img src={imgUrl} alt="" className="img" />}
       </div>
-      {imgUrl && (
-        <a download="График.png" href={imgUrl}>
-          <button>Скачать</button>
-        </a>
-      )}
+      <div className="center">
+        {imgUrl && (
+          <a download="График.png" href={imgUrl}>
+            <button className="download-button">Download</button>
+          </a>
+        )}
+      </div>
     </div>
   );
 };
