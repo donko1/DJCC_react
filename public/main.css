@@ -1,224 +1,389 @@
 
 
 body {
-    min-height: 100vh;
-    background-color: #121212;
-
-  overflow-y: hidden;
+  /*Box model stuff*/
+      min-height: 100vh;
+      background-color: #121212;
+  /*Miscellaneous*/
+    overflow-y: hidden;
+    }
+  
+  .center {
+  /*Display stuff*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  /*Box model stuff*/
+    width: 100%;
+    }
+    
+  .title{
+  /*Typography stuff*/
+      color: white;
   }
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  .container {
+  /*Display stuff*/
+    display: block;
+  /*Positioning stuff*/
+    position: relative;
+  /*Box model stuff*/
+    margin: 0 0 0 40px;
+  /*Miscellaneous*/
+    overflow: hidden;
   }
   
-.title{
+  .container::before {
+  /*Display stuff*/
+    content: "";
+  /*Positioning stuff*/
+    position: absolute;
+    left: 0;
+    top: 0;
+  /*Box model stuff*/
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0));
+  }
+  
+  .container::after {
+  /*Display stuff*/
+    content: "";
+  /*Positioning stuff*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  /*Box model stuff*/
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0));
+  }
+  .elem{
+  /*Box model stuff*/
+    margin: 40 0;
+    padding: 0;
+  /*Typography stuff*/
+    font-size: 50px;
+    text-align: center;
+    color: rgba(242, 54, 69, 0.5);
+  /*Manipulations stuff*/
+    transition: 500ms;}
+  
+  .move-up {
+  /*Manipulations stuff*/
+    animation: move_up 1s ease-in-out;
+  }
+  
+  @keyframes move_up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-91px);
+    }
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  .input {
+  /*Manipulations stuff*/
+    transition: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: fade-in;
+  }
+  
+  .move-down {
+  /*Manipulations stuff*/
+    transition: ease-in-out;
+    animation-delay: 0, 500ms;
+    animation-duration: 500ms, 1s;
+    animation-fill-mode: forwards;
+    animation-name: move_up_1, move_up_2;
+  }
+  
+  .main__elem {
+  /*Typography stuff*/
+    font-size: 80px;
+    color: rgb(17, 151, 129)}
+  
+  @keyframes move_up_1 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(91px);
+    }
+  }
+  @keyframes move_up_2 {
+    0% {
+      transform: translateY(400px);
+    }
+    100% {
+      transform: translateY(273px);
+    }
+  }
+  .main-text {
+  /*Typography stuff*/
+    font-size: 80px;
+    text-align: center;
+  }
+  .parallax-container {
+  /*Positioning stuff*/
+    position: relative;
+  /*Box model stuff*/
+    height: 100vh;
+  /*Miscellaneous*/
+    perspective: 1px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .parallax-background {
+  /*Positioning stuff*/
+    position: absolute;
+  /*Box model stuff*/
+    min-height: 120%;
+  /*Miscellaneous*/
+    inset: 0; 
+    text-replace: auto;
+  }
+  .parallax-background_img {
+  /*Positioning stuff*/
+    position: relative;
+  /*Box model stuff*/
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .parallax-content {
+  /*Manipulations stuff*/
+    transform: translateZ(-0.25px);
+  }
+  .parallax-background:after {
+  /*Display stuff*/
+    content: '';
+    display: block;
+  /*Positioning stuff*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  /*Box model stuff*/
+    width: 100%;
+    min-height: 150%;
+    background-color:rgba(18, 18, 18, .7);
+  }
+  .input-container {
+  /*Box model stuff*/
+    width: 100%;
+  }
+  .input-wrapper {
+  /*Box model stuff*/
+    width: 25%;
+  }
+  .input {
+  /*Box model stuff*/
+    margin: 25px;
+    padding: 30px;
+    border-color: rgba(242, 54, 69, 1);
+    border-radius: 100px;
+    background: transparent;
+  /*Typography stuff*/
+    font-size: 30px;
     color: white;
-}
-.container {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 0 40px;
-}
-
-.container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0));
-}
-
-.container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  background: linear-gradient(to top, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0));
-}
-.elem{
-  text-align: center;
-  margin: 40 0;
-  padding: 0;
-  font-size: 50px;
-  transition: 500ms;
-  color: rgba(242, 54, 69, 0.5)
-}
-
-.move-up {
-  animation: move_up 1s ease-in-out;
-}
-
-@keyframes move_up {
-  0% {
-    transform: translateY(0);
+  /*Manipulations stuff*/
+    transition: .5s;
+  /*Miscellaneous*/
+    box-shadow: 0;
   }
-  100% {
-    transform: translateY(-91px);
+  .input:focus, .has-value, .input:hover{
+  /*Box model stuff*/
+    border-color: rgb(17, 151, 129);
+    outline: 0;
+  /*Manipulations stuff*/
+    transition: .5s;
   }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-200px);
+  .input::placeholder {
+  /*Typography stuff*/
+    font-size: 28px;
+    text-align: center;
+    color: white}
+  .button {
+  /*Box model stuff*/
+    margin-top: 60px;
+    padding: 40px 60px;
+    border-color: rgb(175, 49, 164);
+    border-radius: 100px;
+    background-color: transparent;
+  /*Typography stuff*/
+    font-size: 30px;
+    color: rgb(209, 59, 197);
+  /*Manipulations stuff*/
+    transition: .5s;
+  /*Miscellaneous*/
+    cursor: pointer;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
+  .button:hover {
+  /*Box model stuff*/
+    background-color: rgb(175, 49, 164);
+  /*Typography stuff*/
+    color: white;
+  /*Manipulations stuff*/
+    transition: .5s;
   }
-}
-.input {
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  transition: ease-in-out;
-}
-
-.move-down {
-  animation-name: move_up_1, move_up_2;
-  animation-duration: 500ms, 1s;
-  animation-delay: 0, 500ms;
-  animation-fill-mode: forwards;
-  transition: ease-in-out;
-}
-
-.main__elem {
-  font-size: 80px;
-  color: rgb(17, 151, 129)
-}
-
-@keyframes move_up_1 {
-  0% {
-    transform: translateY(0);
+  @keyframes db {
+    0% {
+      transform: translateY(-200px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+    
   }
-  100% {
-    transform: translateY(91px);
-  }
-}
-@keyframes move_up_2 {
-  0% {
-    transform: translateY(400px);
-  }
-  100% {
-    transform: translateY(273px);
-  }
-}
-.main-text {
-  font-size: 80px;
-  text-align: center;
-}
-.parallax-container {
-  perspective: 1px;
-  height: 100vh;
-  overflow-y: auto;
-  position: relative;
-  overflow-x: hidden;
-}
-
-.parallax-background {
-  position: absolute;
-  inset: 0; 
-  min-height: 120%;
-  text-replace: auto;
-}
-.parallax-background_img {
-  position: relative;
-  min-width: 100%;
-  min-height: 100%;
-}
-.parallax-content {
-  transform: translateZ(-0.25px);
-}
-.parallax-background:after {
-  content: '';
-	display: block;
-	width: 100%;
-	min-height: 150%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color:rgba(18, 18, 18, .7);
-}
-.input-container {
-  width: 100%;
-}
-.input-wrapper {
-  width: 25%;
-}
-.input {
-  background: transparent;
-  box-shadow: 0;
-  border-color: rgba(242, 54, 69, 1);
-  border-radius: 100px;
-  padding: 30px;
-  font-size: 30px;
-  color: white;
-  margin: 25px;
-  transition: .5s;
-}
-.input:focus, .has-value, .input:hover{
-  border-color: rgb(17, 151, 129);
-  outline: 0;
-  transition: .5s;
-}
-.input::placeholder {
-  font-size: 28px;
-  text-align: center;
-  color: white
-}
-.button {
-  padding: 40px 60px;
-  font-size: 30px;
-  background-color: transparent;
-  color: rgb(209, 59, 197);
-  border-color: rgb(175, 49, 164);
-  border-radius: 100px;
-  margin-top: 60px;
-  transition: .5s;
-}
-.button:hover {
-  background-color: rgb(175, 49, 164);
-  color: white;
-  transition: .5s;
-}
-@keyframes db {
-  0% {
-    transform: translateY(-200px);
-  }
-  100% {
-    transform: translateY(0px);
+  .down_button {
+  /*Manipulations stuff*/
+    transition: ease-in-out;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    animation-name: db;
   }
   
-}
-.down_button {
-  animation-name: db;
-  animation-duration: .8s;
-  animation-fill-mode: forwards;
-  transition: ease-in-out;
-}
-
-@keyframes ub {
-  0% {
-    transform: translateY(200px);
+  @keyframes ub {
+    0% {
+      transform: translateY(200px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+    
   }
-  100% {
-    transform: translateY(0px);
+  .up_button {
+  /*Manipulations stuff*/
+    transition: ease-in-out;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    animation-name: ub;
+  }
+  .img {
+  /*Box model stuff*/
+    margin-top: 20px;
+  /*Manipulations stuff*/
+    transition: ease-in-out;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    animation-name: fade-in;
   }
   
-}
-.up_button {
-  animation-name: ub;
-  animation-duration: .8s;
-  animation-fill-mode: forwards;
-  transition: ease-in-out;
-}
+  .download-button {
+  /*Display stuff*/
+    display: inline-block;
+  /*Positioning stuff*/
+    position: relative;
+  /*Box model stuff*/
+    margin-bottom: 60px;
+    margin-top: 100px;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0081;
+  /*Typography stuff*/
+    font-size: 1em;
+    color: #fff;
+  /*Manipulations stuff*/
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  /*Miscellaneous*/
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+  }
+  .download-button:focus {
+  /*Box model stuff*/
+    outline: 0;
+  }
+  .download-button:before, .download-button:after {
+  /*Display stuff*/
+    content: '';
+    display: block;
+  /*Positioning stuff*/
+    position: absolute;
+    left: -20%;
+    z-index: -1000;
+  /*Box model stuff*/
+    width: 140%;
+    height: 100%;
+    background-repeat: no-repeat;
+  /*Manipulations stuff*/
+    transition: all ease-in-out 0.5s;
+  }
+  .download-button:before {
+  /*Display stuff*/
+    display: none;
+  /*Positioning stuff*/
+    top: -75%;
+  /*Box model stuff*/
+    background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+  }
+  .download-button:after {
+  /*Display stuff*/
+    display: none;
+  /*Positioning stuff*/
+    bottom: -75%;
+  /*Box model stuff*/
+    background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  }
+  .download-button:active {
+  /*Box model stuff*/
+    background-color: #e60074;
+  /*Manipulations stuff*/
+    transform: scale(0.9);
+  /*Miscellaneous*/
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  }
+  .download-button.animate:before {
+  /*Display stuff*/
+    display: block;
+  /*Manipulations stuff*/
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+  .download-button.animate:after {
+  /*Display stuff*/
+    display: block;
+  /*Manipulations stuff*/
+    animation: bottomBubbles ease-in-out 0.75s forwards;
+  }
+  @keyframes topBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+   }
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+   }
+    100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+  }
+  @keyframes bottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+   }
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+   }
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+  }
+  

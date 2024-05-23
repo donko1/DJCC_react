@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCookie } from "./customHooks";
 
 function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -50,6 +51,7 @@ const getPicFromData = (l) => {
 };
 
 const Main = () => {
+  const [value, setValue] = useCookie("lang", "en");
   const [rows, setRows] = useState([
     [
       { id: 1, value: "" },
@@ -142,11 +144,15 @@ const Main = () => {
           Generate
         </button>
       </div>
-      <img src={imgUrl} alt="Что-то пошло не так..." />
+      <div className="center">
+        {imgUrl && <img src={imgUrl} alt="Error while generating!" />}
+      </div>
 
-      <a download="График.png" href={imgUrl}>
-        <button>Скачать</button>
-      </a>
+      <div className="center">
+        <a download="График.png" href={imgUrl}>
+          <button className="download-button">Скачать</button>
+        </a>
+      </div>
     </div>
   );
 };
