@@ -145,7 +145,6 @@ const Main = () => {
         </button>
       </div>
       <div className="center">
-<<<<<<< HEAD
         {imgUrl && <img src={imgUrl} alt="Error while generating!" />}
       </div>
 
@@ -153,16 +152,6 @@ const Main = () => {
         <a download="График.png" href={imgUrl}>
           <button className="download-button">Скачать</button>
         </a>
-=======
-        {imgUrl && <img src={imgUrl} alt="" className="img" />}
-      </div>
-      <div className="center">
-        {imgUrl && (
-          <a download="График.png" href={imgUrl}>
-            <button className="download-button">Download</button>
-          </a>
-        )}
->>>>>>> f7e8be98ef789703ddca5297b1d1db2cbbf19f73
       </div>
     </div>
   );
