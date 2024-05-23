@@ -248,12 +248,115 @@ body {
     }
     
   }
+<<<<<<< HEAD
   .down_button {
   /*Manipulations stuff*/
     transition: ease-in-out;
     animation-duration: .8s;
     animation-fill-mode: forwards;
     animation-name: db;
+=======
+  100% {
+    transform: translateY(91px);
+  }
+}
+@keyframes move_up_2 {
+  0% {
+    transform: translateY(400px);
+  }
+  100% {
+    transform: translateY(273px);
+  }
+}
+.main-text {
+  font-size: 80px;
+  text-align: center;
+}
+.parallax-container {
+  perspective: 1px;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.parallax-background {
+  position: absolute;
+  inset: 0; 
+  min-height: 120%;
+  text-replace: auto;
+}
+.parallax-background_img {
+  position: relative;
+  min-width: 100%;
+  min-height: 100%;
+}
+.parallax-content {
+  transform: translateZ(-0.25px);
+}
+.parallax-background:after {
+  content: '';
+	display: block;
+	width: 100%;
+	min-height: 150%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(18, 18, 18, .7);
+}
+.input-container {
+  width: 100%;
+}
+.input-wrapper {
+  width: 25%;
+}
+.input {
+  background: transparent;
+  box-shadow: 0;
+  border-color: rgba(242, 54, 69, 1);
+  border-radius: 100px;
+  padding: 30px;
+  font-size: 30px;
+  color: white;
+  margin: 25px;
+  transition: .5s;
+}
+.input:focus, .has-value, .input:hover{
+  border-color: rgb(17, 151, 129);
+  outline: 0;
+  transition: .5s;
+}
+.input::placeholder {
+  font-size: 28px;
+  text-align: center;
+  color: white
+}
+.button {
+  padding: 40px 60px;
+  font-size: 30px;
+
+  cursor: pointer;
+  background-color: transparent;
+  color: rgb(209, 59, 197);
+  border-color: rgb(175, 49, 164);
+  border-radius: 100px;
+  margin-top: 60px;
+  transition: .5s;
+}
+.button:hover {
+  background-color: rgb(175, 49, 164);
+  color: white;
+  transition: .5s;
+}
+@keyframes db {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+>>>>>>> f7e8be98ef789703ddca5297b1d1db2cbbf19f73
   }
   
   @keyframes ub {
@@ -282,6 +385,7 @@ body {
     animation-name: fade-in;
   }
   
+<<<<<<< HEAD
   .download-button {
   /*Display stuff*/
     display: inline-block;
@@ -387,3 +491,100 @@ body {
    }
   }
   
+=======
+}
+.up_button {
+  animation-name: ub;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  transition: ease-in-out;
+}
+.img {
+  margin-top: 20px;
+  animation-name: fade-in;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  transition: ease-in-out;
+}
+
+.download-button {
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ff0081;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+.download-button:focus {
+  outline: 0;
+}
+.download-button:before, .download-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.download-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.download-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.download-button:active {
+  transform: scale(0.9);
+  background-color: #e60074;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+.download-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.download-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+ }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+ }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+ }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+ }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+ }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+ }
+}
+>>>>>>> f7e8be98ef789703ddca5297b1d1db2cbbf19f73
