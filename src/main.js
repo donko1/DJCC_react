@@ -149,9 +149,11 @@ const Main = () => {
       </div>
 
       <div className="center">
-        <a download="График.png" href={imgUrl}>
-          <button className="download-button">Скачать</button>
-        </a>
+        {imgUrl && (
+          <a download="График.png" href={imgUrl}>
+            <button className="download-button">Download</button>
+          </a>
+        )}
       </div>
     </div>
   );
