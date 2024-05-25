@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const useCookie = (cookieName, defaultValue) => {
   const [value, setValue] = useState(() => {
-    const cookieValue =
-      document.cookie.match("(^|;)s*${cookieName}s*=s*([^;]+)s*")?.pop() || "";
-    return cookieValue ? JSON.parse(cookieValue) : defaultValue;
+    const cookie = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(`${cookieName}=`));
+    return cookie ? cookie.split("=")[1] : defaultValue;
   });
 
-  useEffect(() => {
-    if (!document.cookie.includes(cookieName)) {
-      document.cookie = `${cookieName}=${JSON.stringify(value)}; path=/`;
-    }
-  }, [cookieName, value]);
+  const setCookieValue = (newValue) => {
+    document.cookie = `${cookieName}=${newValue}; path=/`;
+    setValue(newValue);
+  };
 
-  return [value, setValue];
+  return [value, setCookieValue];
 };

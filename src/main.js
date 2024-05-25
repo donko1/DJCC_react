@@ -50,8 +50,30 @@ const getPicFromData = (l) => {
   return url;
 };
 
-const Main = () => {
+const LanguageButton = () => {
   const [value, setValue] = useCookie("lang", "en");
+  console.log(value);
+  return (
+    <div className="langButtons">
+      <button
+        onClick={() => {
+          setValue("ru");
+        }}
+      >
+        Ru
+      </button>
+      <button
+        onClick={() => {
+          setValue("en");
+        }}
+      >
+        En
+      </button>
+    </div>
+  );
+};
+
+const Main = () => {
   const [rows, setRows] = useState([
     [
       { id: 1, value: "" },
@@ -60,6 +82,7 @@ const Main = () => {
       { id: 4, value: "" },
     ],
   ]);
+
   const [imgUrl, setImgUrl] = useState();
 
   const handleChange = (e, id, rowId) => {
@@ -114,6 +137,7 @@ const Main = () => {
   });
   return (
     <div>
+      <LanguageButton />
       {rows.map((row, rowId) => (
         <div
           className="input-container"
