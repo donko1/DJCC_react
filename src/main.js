@@ -5,6 +5,13 @@ function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+function getLang() {
+  const cookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`lang=`));
+  return cookie ? cookie.split("=")[1] : "en";
+}
+
 const getBackground = (n) => {
   switch (n) {
     case 1:
@@ -50,21 +57,34 @@ const getPicFromData = (l) => {
   return url;
 };
 
-const LanguageButton = () => {
+const CWBL = (en_v, ru_v, lang) => {
+  // Choose word by language
+  switch (lang) {
+    case "ru":
+      return ru_v;
+    case "en":
+      return en_v;
+  }
+};
+
+const LanguageButton = (props) => {
   const [value, setValue] = useCookie("lang", "en");
-  console.log(value);
+  const changeLang = (newValue) => {
+    setValue(newValue);
+    props.update(Math.random());
+  };
   return (
     <div className="langButtons">
       <button
         onClick={() => {
-          setValue("ru");
+          changeLang("ru");
         }}
       >
         Ru
       </button>
       <button
         onClick={() => {
-          setValue("en");
+          changeLang("en");
         }}
       >
         En
@@ -74,6 +94,8 @@ const LanguageButton = () => {
 };
 
 const Main = () => {
+  console.log(CWBL("eng", "rus", getLang()));
+  const [update, DoUpdateComponent] = useState("");
   const [rows, setRows] = useState([
     [
       { id: 1, value: "" },
@@ -137,7 +159,7 @@ const Main = () => {
   });
   return (
     <div>
-      <LanguageButton />
+      <LanguageButton update={DoUpdateComponent} />
       {rows.map((row, rowId) => (
         <div
           className="input-container"
