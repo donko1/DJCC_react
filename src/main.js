@@ -15,13 +15,13 @@ function getLang() {
 const getBackground = (n) => {
   switch (n) {
     case 1:
-      return "Minimum";
+      return CWBL("Minimum", "Минимум", getLang());
     case 2:
-      return "Open";
+      return CWBL("Open", "Открытие", getLang());
     case 3:
-      return "Close";
+      return CWBL("Close", "Закрытие", getLang());
     case 4:
-      return "Max";
+      return CWBL("Max", "Максимум", getLang());
   }
 };
 
@@ -94,7 +94,6 @@ const LanguageButton = (props) => {
 };
 
 const Main = () => {
-  console.log(CWBL("eng", "rus", getLang()));
   const [update, DoUpdateComponent] = useState("");
   const [rows, setRows] = useState([
     [
@@ -191,13 +190,24 @@ const Main = () => {
         </button>
       </div>
       <div className="center">
-        {imgUrl && <img src={imgUrl} alt="Error while generating!" />}
+        {imgUrl && (
+          <img
+            src={imgUrl}
+            alt={CWBL(
+              "Error while generating!",
+              "Ошибка во время генерации!",
+              getLang()
+            )}
+          />
+        )}
       </div>
 
       <div className="center">
         {imgUrl && (
           <a download="График.png" href={imgUrl}>
-            <button className="download-button">Download</button>
+            <button className="download-button">
+              {CWBL("Download", "Скачать", getLang())}
+            </button>
           </a>
         )}
       </div>
