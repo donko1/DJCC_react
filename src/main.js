@@ -186,7 +186,7 @@ const Main = () => {
           className="button"
           onClick={() => setImgUrl(getPicFromData(rows))}
         >
-          Generate
+          {CWBL("Generate", "Генерировать", getLang())}
         </button>
       </div>
       <div className="center">

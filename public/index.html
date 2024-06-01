@@ -29,9 +29,9 @@
         <div class="center">
           <h1 class="main-text">Here you can</h1>
           <div class="container">
-            <h2 class="elem">Draw</h2>
-            <h2 class="elem main__elem">Invest</h2>
-            <h2 class="elem">Trade</h2>
+            <h2 class="draw elem">Draw</h2>
+            <h2 class="invest elem main__elem">Invest</h2>
+            <h2 class="trade elem">Trade</h2>
           </div>
         </div>
         <div id="root"></div>
@@ -39,5 +39,30 @@
     </div>
 
     <script src="%PUBLIC_URL%/main.js"></script>
+    <script>
+      const changeLang = () => {
+        document.getElementsByClassName("main-text")[0].textContent = CWBL(
+          "Here u can",
+          "Здесь вы можете",
+          getLang()
+        );
+        document.getElementsByClassName("draw")[0].textContent = CWBL(
+          "Draw",
+          "Чертить",
+          getLang()
+        );
+        document.getElementsByClassName("invest")[0].textContent = CWBL(
+          "Invest",
+          "Инвестировать",
+          getLang()
+        );
+        document.getElementsByClassName("trade")[0].textContent = CWBL(
+          "Trade",
+          "Трейдить",
+          getLang()
+        );
+      };
+      changeLang();
+    </script>
   </body>
 </html>

@@ -26,3 +26,20 @@ setInterval(() => {
     container.appendChild(newElems[2]);
   });
 }, 7000);
+
+function getLang() {
+  const cookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`lang=`));
+  return cookie ? cookie.split("=")[1] : "en";
+}
+
+const CWBL = (en_v, ru_v, lang) => {
+  // Choose word by language
+  switch (lang) {
+    case "ru":
+      return ru_v;
+    case "en":
+      return en_v;
+  }
+};
