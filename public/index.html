@@ -40,29 +40,42 @@
 
     <script src="%PUBLIC_URL%/main.js"></script>
     <script>
-      const changeLang = () => {
+      const reverse = (arg) => {
+        if (arg === "ru") {
+          return "en";
+        }
+        return "ru";
+      };
+      const changeLang = (reverseF) => {
         document.getElementsByClassName("main-text")[0].textContent = CWBL(
           "Here u can",
           "Здесь вы можете",
-          getLang()
+          reverseF(getLang())
         );
         document.getElementsByClassName("draw")[0].textContent = CWBL(
           "Draw",
           "Чертить",
-          getLang()
+          reverseF(getLang())
         );
         document.getElementsByClassName("invest")[0].textContent = CWBL(
           "Invest",
           "Инвестировать",
-          getLang()
+          reverseF(getLang())
         );
         document.getElementsByClassName("trade")[0].textContent = CWBL(
           "Trade",
           "Трейдить",
-          getLang()
+          reverseF(getLang())
         );
       };
-      changeLang();
+      changeLang((l) => {
+        return l;
+      });
+      sleep(100).then(() => {
+        document
+          .getElementsByClassName("langButtons")[0]
+          .addEventListener("click", () => changeLang(reverse));
+      });
     </script>
   </body>
 </html>

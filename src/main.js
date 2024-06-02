@@ -75,20 +75,24 @@ const LanguageButton = (props) => {
   };
   return (
     <div className="langButtons">
-      <button
-        onClick={() => {
-          changeLang("ru");
-        }}
-      >
-        Ru
-      </button>
-      <button
-        onClick={() => {
-          changeLang("en");
-        }}
-      >
-        En
-      </button>
+      {getLang() === "en" && (
+        <button
+          onClick={() => {
+            changeLang("ru");
+          }}
+        >
+          Ru
+        </button>
+      )}
+      {getLang() === "ru" && (
+        <button
+          onClick={() => {
+            changeLang("en");
+          }}
+        >
+          En
+        </button>
+      )}
     </div>
   );
 };
