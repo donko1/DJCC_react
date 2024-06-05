@@ -386,4 +386,21 @@ body {
       background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
    }
   }
-  
+.langButtons button {
+  background-color: transparent;
+  color: white;
+  font-size: 40px;
+  border-radius: 100px;
+  border-color: #63c518;
+  padding: 30px;
+  transition: .5s;
+}
+.langButtons button:hover {
+  border-color: #22198a;
+  transition: .5s;
+}
+.langButtons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
